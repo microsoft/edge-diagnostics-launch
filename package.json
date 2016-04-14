@@ -16,5 +16,8 @@
     "launch"
   ],
   "author": "Kenneth Auchenberg <kenneth@auchenberg>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "edge-diagnostics-adapter": "0.0.1"
+  }
 }

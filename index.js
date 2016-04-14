@@ -2,6 +2,8 @@ var urlparse = require('url').parse
 var urlformat = require('url').format
 var child_process = require('child_process')
 var path = require('path')
+var os = require('os')
+
 
 function launch(url, options, callback) {
   var params = []
@@ -15,7 +17,8 @@ function launch(url, options, callback) {
   }
   
   // Fire up process
-  var adaptorPath = path.join(__dirname, 'bin', 'EdgeDiagnosticsAdapter.exe')
+  var architecture = os.arch()
+  var adaptorPath = path.join(__dirname, 'node_modules', 'edge-diagnostics-adapter', 'dist', architecture, 'EdgeDiagnosticsAdapter.exe')
   var command = adaptorPath
   var adaptorProcess = child_process.execFile(command, params, callback)
 
