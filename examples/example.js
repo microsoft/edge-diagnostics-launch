@@ -1,6 +1,6 @@
-var edgeDiagnosticsLaunch = require('../index.js')
+var launch = require('../index.js')
 
-edgeDiagnosticsLaunch('http://kenneth.io', {}, function(err) {
+launch('http://microsoft.com', {}, function(err) {
   if(err) {
     console.error('an error occured', err)
   } else {
