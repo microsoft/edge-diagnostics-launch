@@ -13,7 +13,7 @@ var launch = require('edge-diagnostics-launch')
 var options = {}
 
 // launch(<url>, <options>, callback)
-launch('http://kenneth.io', options, function(err, strout) {
+launch('http://microsoft.com', options, function(err, strout) {
   console.log('err', err)
 })
 ```
