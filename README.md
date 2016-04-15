@@ -9,11 +9,11 @@ No options for now.
 
 ## Usage
 ```javascript
-var edgeDiagnosticsLaunch = require('edge-diagnostics-launch')
+var launch = require('edge-diagnostics-launch')
 var options = {}
 
-// edgeDiagnosticsLaunch(<url>, <options>, callback)
-edgeDiagnosticsLaunch('http://kenneth.io', options, function(err, strout) {
+// launch(<url>, <options>, callback)
+launch('http://kenneth.io', options, function(err, strout) {
   console.log('err', err)
 })
 ```
