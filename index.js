@@ -14,7 +14,7 @@ function launch (url, options, callback) {
     args.push('-l ' + url)
   }
 
-  var command = path.resolve(__dirname, '..', 'node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
+  var command = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
 
   return child_process.execFile(command, args, callback)
 }
