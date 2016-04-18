@@ -8,13 +8,27 @@ Launcher for Microsoft Edge Diagnostics Adapter to make it simpler to start an i
 No options for now.
 
 ## Usage
+
 ```javascript
 var launch = require('edge-diagnostics-launch')
 var options = {}
 
 // launch(<url>, <options>, callback)
-var edge = launch('http://microsoft.com', options)
+var edge = launch('http://microsoft.com', options, function(err) {
+  
+  if (err) {
+    console.log('Something went wrong when starting Edge', err)
+  } else {
+    console.log('Edge launched. Go connect')
+  }
+  
+})
 
+edge.on('exit', function(code) {
+  console.log('Edge has excited with code', code)
+})
+
+// stdout + stderr streams from adaptor
 edge.stdout.on('data', function(data) {
   console.log('edge.stdout', data)
 })
@@ -23,9 +37,6 @@ edge.stderr.on('data', function(data) {
   console.log('edge.stderr', data)
 })
 
-edge.on('exit', function(code) {
-  console.log('Edge has excited with code', code)
-})
 ```
 
 ## License

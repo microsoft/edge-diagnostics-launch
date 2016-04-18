@@ -1,13 +1,13 @@
 var launch = require('../index.js')
 
-var edge = launch('http://microsoft.com', {})
-
-edge.stdout.on('data', function(data) {
-  console.log('edge.stdout', data)
-})
-
-edge.stderr.on('data', function(data) {
-  console.log('edge.stderr', data)
+var edge = launch('http://microsoft.com', {}, function(err) {
+  
+  if (err) {
+    console.log('Something went wrong when starting Edge', err)
+  } else {
+    console.log('Edge launched. Go connect')
+  }
+  
 })
 
 edge.on('exit', function(code) {
