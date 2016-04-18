@@ -1,6 +1,6 @@
 {
   "name": "edge-diagnostics-launch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Launcher for Microsoft Edge Diagnostics Adaptor",
   "main": "index.js",
   "scripts": {
