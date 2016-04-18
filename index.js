@@ -4,7 +4,7 @@ var child_process = require('child_process')
 var path = require('path')
 var os = require('os')
 
-function launch (url, options) {
+function launch(url, options, callback) {
   var args = []
 
   if (url && url.length) {
@@ -15,7 +15,22 @@ function launch (url, options) {
   }
 
   var command = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
-  return child_process.spawn(command, args)
+  var process = child_process.spawn(command, args)
+
+  if (callback) {
+    process.stdout.on('data', function(msg) {
+      msg = (typeof msg === Buffer) ? msg.toString() : msg
+      if (/Proxy server listening on port \d{4}/g.test(msg)) {
+        callback(null)
+      }
+    })
+
+    process.stderr.on('data', function(err) {
+      callback(err)
+    })
+  }
+
+  return process
 }
 
 module.exports = launch
