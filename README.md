@@ -13,8 +13,18 @@ var launch = require('edge-diagnostics-launch')
 var options = {}
 
 // launch(<url>, <options>, callback)
-launch('http://microsoft.com', options, function(err, strout) {
-  console.log('err', err)
+var edge = launch('http://microsoft.com', options)
+
+edge.stdout.on('data', function(data) {
+  console.log('edge.stdout', data)
+})
+
+edge.stderr.on('data', function(data) {
+  console.log('edge.stderr', data)
+})
+
+edge.on('exit', function(code) {
+  console.log('Edge has excited with code', code)
 })
 ```
 

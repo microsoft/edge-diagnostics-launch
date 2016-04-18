@@ -1,10 +1,15 @@
 var launch = require('../index.js')
 
-launch('http://microsoft.com', {}, function(err) {
-  if(err) {
-    console.error('an error occured', err)
-  } else {
-    console.log('data', arguments)
-  }
+var edge = launch('http://microsoft.com', {})
+
+edge.stdout.on('data', function(data) {
+  console.log('edge.stdout', data)
 })
-console.log('something after')
+
+edge.stderr.on('data', function(data) {
+  console.log('edge.stderr', data)
+})
+
+edge.on('exit', function(code) {
+  console.log('Edge has excited with code', code)
+})
