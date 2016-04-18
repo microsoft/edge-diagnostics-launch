@@ -4,7 +4,7 @@ var child_process = require('child_process')
 var path = require('path')
 var os = require('os')
 
-function launch (url, options, callback) {
+function launch (url, options) {
   var args = []
 
   if (url && url.length) {
@@ -15,8 +15,7 @@ function launch (url, options, callback) {
   }
 
   var command = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
-
-  return child_process.execFile(command, args, callback)
+  return child_process.spawn(command, args)
 }
 
 module.exports = launch
