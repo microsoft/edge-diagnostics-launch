@@ -17,9 +17,7 @@ function launch(url, options, callback) {
   }
   
   // Fire up process
-  var architecture = os.arch()
-  var adaptorPath = path.join(__dirname, 'node_modules', 'edge-diagnostics-adapter', 'dist', architecture, 'EdgeDiagnosticsAdapter.exe')
-  var command = adaptorPath
+  var command = path.resolve(__dirname, '..', 'node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')  
   var adaptorProcess = child_process.execFile(command, params, callback)
 
   process.on('exit', function(code) {
