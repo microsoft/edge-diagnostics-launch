@@ -18,13 +18,8 @@ function launch(url, options, callback) {
   
   // Fire up process
   var command = path.resolve(__dirname, '..', 'node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')  
-  var adaptorProcess = child_process.execFile(command, args, callback)
-
-  process.on('exit', function(code) {
-    adaptorProcess.kill()
-  })
-
-  return process
+  
+  return child_process.execFile(command, args, callback)
 }
 
 module.exports = launch
