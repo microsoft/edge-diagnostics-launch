@@ -11,7 +11,9 @@ No options for now.
 
 ```javascript
 var launch = require('edge-diagnostics-launch')
-var options = {}
+var options = {
+  adapterPath: '' // Optional, override adaptor path
+}
 
 // launch(<url>, <options>, callback)
 var edge = launch('http://microsoft.com', options, function(err) {

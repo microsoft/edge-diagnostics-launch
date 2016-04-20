@@ -6,6 +6,7 @@ var os = require('os')
 
 function launch(url, options, callback) {
   var args = []
+  options = options || {}
 
   if (url && url.length) {
     var urlObj = urlparse(url, true)
@@ -14,7 +15,13 @@ function launch(url, options, callback) {
     args.push('-l ' + url)
   }
 
-  var command = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
+  var adapterPath = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
+
+  if (options.adapterPath) {
+    adapterPath = options.adapterPath
+  }
+
+  var command = adapterPath
   var process = child_process.spawn(command, args)
 
   if (callback) {
