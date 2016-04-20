@@ -18,6 +18,6 @@
   "author": "Kenneth Auchenberg <kenneth@auchenberg>",
   "license": "MIT",
   "dependencies": {
-    "edge-diagnostics-adapter": "0.1.0"
+    "edge-diagnostics-adapter": "0.2.1"
   }
 }
