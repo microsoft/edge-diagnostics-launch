@@ -25,9 +25,8 @@ function launch(url, options, callback) {
   var process = child_process.spawn(command, args)
 
   if (callback) {
-    process.stdout.on('data', function(msg) {
-      msg = (typeof msg === Buffer) ? msg.toString() : msg
-      if (/Proxy server listening on port \d{4}/g.test(msg)) {
+    process.stdout.on('data', function(chunk) {
+      if (/server listening on port \d{4}/g.test(chunk.toString('utf-8'))) {
         callback(null)
       }
     })
