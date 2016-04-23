@@ -12,7 +12,7 @@ function launch(url, options, callback) {
     var urlObj = urlparse(url, true)
     delete urlObj.search   // url.format does not want search attribute
     url = urlformat(urlObj)
-    args.push('-l ' + url)
+    args.push('--launch ' + url)
   }
 
   var adapterPath = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
