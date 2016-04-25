@@ -15,7 +15,7 @@
     "process",
     "launch"
   ],
-  "author": "Kenneth Auchenberg <kenneth@auchenberg>",
+  "author": "Kenneth Auchenberg <kenneth@auchenberg.dk>",
   "license": "MIT",
   "dependencies": {
     "edge-diagnostics-adapter": "0.2.1"
