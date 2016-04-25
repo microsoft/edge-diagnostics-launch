@@ -5,7 +5,12 @@ Launcher for Microsoft Edge Diagnostics Adapter to make it simpler to start an i
 `npm install edge-diagnostics-launch`
 
 ## Options
-No options for now.
+```javascript
+{
+  adapterPath: '' // Optional, override adaptor path
+  port: 9222, // Optional, override socket port
+}
+```
 
 ## Usage
 
