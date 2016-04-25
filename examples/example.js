@@ -11,5 +11,5 @@ var edge = launch('http://microsoft.com', {}, function(err) {
 })
 
 edge.on('exit', function(code) {
-  console.log('Edge has excited with code', code)
+  console.log('Edge has exited with code', code)
 })
