@@ -8,6 +8,10 @@ function launch(url, options, callback) {
   var args = []
   options = options || {}
 
+  if (options.port) {
+    args.push('--port', options.port);
+  }
+
   if (url && url.length) {
     var urlObj = urlparse(url, true)
     delete urlObj.search   // url.format does not want search attribute

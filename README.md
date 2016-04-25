@@ -13,6 +13,7 @@ No options for now.
 var launch = require('edge-diagnostics-launch')
 var options = {
   adapterPath: '' // Optional, override adaptor path
+  port: 9222, // Optional, override socket port
 }
 
 // launch(<url>, <options>, callback)
