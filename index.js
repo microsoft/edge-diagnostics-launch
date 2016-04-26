@@ -2,6 +2,7 @@ var urlparse = require('url').parse
 var urlformat = require('url').format
 var child_process = require('child_process')
 var path = require('path')
+var fs = require('fs');
 var os = require('os')
 
 function launch(url, options, callback) {
@@ -19,13 +20,20 @@ function launch(url, options, callback) {
     args.push('--launch ' + url)
   }
 
-  var adapterPath = path.resolve('node_modules', 'edge-diagnostics-adapter', 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
 
   if (options.adapterPath) {
-    adapterPath = options.adapterPath
+    var command = options.adapterPath
+  } else {
+    for (var i = 0; i < module.paths.length; i++) {
+      var command = path.resolve(module.paths[i], 'edge-diagnostics-adapter',
+                                 'dist', os.arch(), 'EdgeDiagnosticsAdapter.exe')
+
+      if (fs.existsSync(command)) {
+        break;
+      }
+    }
   }
 
-  var command = adapterPath
   var process = child_process.spawn(command, args)
 
   if (callback) {
