@@ -7,8 +7,8 @@ Launcher for Microsoft Edge Diagnostics Adapter to make it simpler to start an i
 ## Options
 ```javascript
 {
-  adapterPath: '' // Optional, override adaptor path
-  port: 9222, // Optional, override socket port
+  adapterPath: '', // Optional, override adaptor path
+  port: 9222 // Optional, override socket port
 }
 ```
 
@@ -17,8 +17,8 @@ Launcher for Microsoft Edge Diagnostics Adapter to make it simpler to start an i
 ```javascript
 var launch = require('edge-diagnostics-launch')
 var options = {
-  adapterPath: '' // Optional, override adaptor path
-  port: 9222, // Optional, override socket port
+  adapterPath: '', // Optional, override adaptor path
+  port: 9222 // Optional, override socket port
 }
 
 // launch(<url>, <options>, callback)
